@@ -1,10 +1,16 @@
 ﻿//Author: Cyrus Schwarz
 //Date: 7/28/19
 //Category: Utility
+//Purpose: Gives the bot uptime, username, create date, and number of servers it's on
 
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+
+    if (args[0] == "help") {
+        message.reply("Usage: ;botinfo");
+        return;
+    }
 
     let totalSeconds = (bot.uptime / 1000);
     let days = Math.floor(totalSeconds / 86400);
