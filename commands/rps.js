@@ -3,6 +3,12 @@
 //Category: Fun
 //Purpose: Rock paper scissors
 
+/* Todo
+ * make it use the new richembed
+ * 
+ * */
+
+
 const Discord = require("discord.js");
 
 function randomIntInc(low, high) {
@@ -29,8 +35,6 @@ module.exports.run = async (bot, message, args) => {
     // get reply...
     let userReply = args[0];
 
-    // normalize...
-    userReply = userReply.toLowerCase();
 
     // check if it's valid
 
@@ -72,10 +76,7 @@ module.exports.run = async (bot, message, args) => {
     
     
 
-    //write this in a switch statement later
-
-    //result = random choice
-    //replies = user reply
+  
 
 
 

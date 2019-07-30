@@ -5,6 +5,7 @@
 
 module.exports.run = async (bot, message, args) => {
 
+    const Discord = require("discord.js");
 
     //usage
     if (args[0] == "help") {
@@ -13,9 +14,29 @@ module.exports.run = async (bot, message, args) => {
     }
 
     const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+    m.delete;
+    m.edit(`Pong`);
 
-    console.log('the command ping has been run')
+
+    //creates variables based on the message that was sent and when it was edited
+
+    var latency = m.createdTimestamp - message.createdTimestamp;
+    var apilatency = Math.round(bot.ping);
+
+    //creates an embed that uses those variables I just created
+
+    let botembed = new Discord.RichEmbed()
+        .setDescription("Bot Ping")
+        .setColor("#81ff14")
+        .addField("API Time (ms)", apilatency)
+        .addField("Latency (ms)", latency)
+     
+
+
+    m.edit(botembed);
+    
+
+   
 
 }
 
@@ -28,3 +49,5 @@ module.exports.help = {
     examples: ['ping'],
 
 }
+
+       

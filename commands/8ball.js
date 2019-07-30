@@ -3,6 +3,13 @@
 //Category: Fun
 //Purpose: 8ball
 
+
+/* TODO
+ * make it so that there's not a new line every space
+ * 
+ * */
+
+
 const Discord = require("discord.js");
 
 function randomIntInc(low, high) {
@@ -13,57 +20,65 @@ function randomIntInc(low, high) {
 
 module.exports.run = async (bot, message, args) => {
 
-        var rnd = randomIntInc(1, 5);
-        
+        //var rnd = randomIntInc(1, 5);
+    var rnd = 1;
     if (rnd === 1) {
 
-        const embed = new Discord.RichEmbed()
-            .setTitle("lol no")
-            .setColor(0x81ff14)
-            .setDescription(args)
-            .setTimestamp()
-        message.channel.send({ embed });
+        let botembed = new Discord.RichEmbed()
+            
+            .addField('Your Question', args) //Displays the user's question
+            .addField('My answer', 'lolno') //Gives answer
+         
+        
 
+            .setColor(0x81ff14) //Make the embed cyrusgreen
+            .setFooter('Searched User') //Add a footer
+            .setTimestamp() //Timestamp the footer
+        message.channel.send(botembed);
     }
 
        
     if (rnd === 2) {
 
-        const embed = new Discord.RichEmbed()
-            .setTitle("wtf")
-            .setColor(0x81ff14)
-            .setDescription(args)
+        let botembed = new Discord.RichEmbed()
+            .setDescription("the AI knows all")
+            .setColor("#81ff14")
+            .setField(args , true)
+            .setField('wtf')
             .setTimestamp()
-        message.channel.send({ embed });
+        message.channel.send(botembed);
     }
 
     if (rnd === 3) {
 
-        const embed = new Discord.RichEmbed()
-            .setTitle("absolutely")
-            .setColor(0x81ff14)
-            .setDescription(args)
+        let botembed = new Discord.RichEmbed()
+            .setDescription("the AI knows all")
+            .setColor("#81ff14")
+            .setField(args , true)
+            .setField('absolutely')
             .setTimestamp()
-        message.channel.send({ embed });
+        message.channel.send(botembed);
     }
     if (rnd === 4) {
 
-        const embed = new Discord.RichEmbed()
-            .setTitle("no?")
-            .setColor(0x81ff14)
-            .setDescription(args)
+        let botembed = new Discord.RichEmbed()
+            .setDescription("the AI knows all")
+            .setColor("#81ff14")
+            .setField(args , true)
+            .setField('no?')
             .setTimestamp()
-        message.channel.send({ embed });
+        message.channel.send(botembed);
     }
 
     if (rnd === 5) {
 
-        const embed = new Discord.RichEmbed()
-            .setTitle("im not sure")
-            .setColor(0x81ff14)
-            .setDescription(args)
+        let botembed = new Discord.RichEmbed()
+            .setDescription("the AI knows all")
+            .setColor("#81ff14")
+            .setField(args , true)
+            .setField('okay and')
             .setTimestamp()
-        message.channel.send({ embed });
+        message.channel.send(botembed);
     }
     
 };
