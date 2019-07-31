@@ -6,6 +6,9 @@
 /*
  * todo
  * make embed look prettier
+ * add more info to embed
+ * eventually add nickname and name tracker
+ * 
  * 
  * */
 
@@ -23,12 +26,14 @@ module.exports.run = async (bot, message, args) => {
 
     //If all else is good, an embed is made with some info and sends it.
     try {
+        let uicon = memberToFind.user.displayAvatarURL;
         let embed = new Discord.RichEmbed()
+      
             .setAuthor(memberToFind.user.tag, memberToFind.user.avatarURL)
             .addField('Account Created', memberToFind.user.createdAt, true) //Shows when the user was registered
             .addField('Joined this Server', message.guild.members.find('id', memberToFind.id).joinedAt, true) //Shows when the user joined the guild
             .addField('User ID', memberToFind.id, true) //Shows the user ID
-            .setImage(memberToFind.avatarURL)
+            .setThumbnail(uicon)
 
             .setColor(0x81ff14) //Make the embed cyrusgreen
             .setFooter('Searched User') //Add a footer
@@ -38,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
         return;
 
     } catch(e) {
-
+  
         let embed = new Discord.RichEmbed()
            
             .setTitle('Error!') //Shows when the user was registered
