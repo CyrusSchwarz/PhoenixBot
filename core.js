@@ -10,7 +10,6 @@ bot.commands = new Discord.Collection();
 
 
 
-
 fs.readdir("./commands/", (err, files) => {
 
     if (err) console.log(err);
@@ -26,6 +25,8 @@ fs.readdir("./commands/", (err, files) => {
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
     });
+
+
 
 });
 
@@ -49,7 +50,7 @@ bot.on('ready', () => {
 
 bot.on("message", async message => {
     if (message.author.bot) return;
-    if (message.channel.type === "dm") return;
+  
     
     let prefix = config.prefix;
     if (!message.content.startsWith(prefix)) return;
