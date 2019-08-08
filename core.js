@@ -9,7 +9,6 @@ bot.commands = new Discord.Collection();
 
 
 
-
 fs.readdir("./commands/", (err, files) => {
 
     if (err) console.log(err);
@@ -44,14 +43,14 @@ bot.on('ready', () => {
 
 //Says says the bot has been initialized in the server.
 bot.on('ready', () => {
-    var generalChannel = bot.channels.get("563847744930709504") // Replace with known channel ID
-    bot.user.setActivity(bot.guilds.size + " servers in Cyrus's basement", { type: "WATCHING" });
+
+    bot.user.setActivity(bot.guilds.size + " servers in my basement | Do ;help for help!", { type: "WATCHING" });
 });
 
 bot.on("message", async message => {
     if (message.author.bot) return;
-  
-    
+
+
     let prefix = config.prefix;
     if (!message.content.startsWith(prefix)) return;
 
@@ -61,7 +60,7 @@ bot.on("message", async message => {
     let args = messageArray.slice(1);
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length))
-    || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
     if (commandfile) commandfile.run(bot, message, args);
 
 
@@ -69,9 +68,9 @@ bot.on("message", async message => {
 });
 
 bot.on("guildCreate", guild => {
-   
+
     console.log(`The bot just joined to ${guild.name}, Owned by ${guild.owner.user.tag}`);
- 
+
 
     var guildMSG = guild.channels.find('name', 'general');
 
@@ -91,7 +90,7 @@ Here is an invite to the support server: https://discord.gg/6n6B3Gg
 bot.on("guildDelete", guild => {
 
     console.log(`The bot has been left ${guild.name}, Owned by ${guild.owner.user.tag}`);
-    
+
 });
 
 
